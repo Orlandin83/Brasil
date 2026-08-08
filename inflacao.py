@@ -11,7 +11,6 @@ start = "2020-01-01"
 end = dt.datetime.today()
 ipca_m = sgs.get(433, start, end)
 ipca_m = ipca_m[-13:]
-
 #%% CESTA IPCA
 cesta = [1635, 1636, 1637, 1638, 1639, 1641, 1642, 1643, 1640, 433]
 base = "2026-04-01"
@@ -41,7 +40,7 @@ ipca_12m = pd.concat([ipca_12m, ipca_nucleo_12m], axis = 1).dropna()
 
 #%% GRÁFICO
 fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, ncols=1, figsize=(16,12))
-
+fig.suptitle(f"Inflação - {ipca_m.index[-1].strftime('%m/%Y')}", fontsize=16, fontweight="bold", color="darkblue")
 bar_ax1 = ax1.bar(
     x=ipca_m.index,
     height=ipca_m["433"],
