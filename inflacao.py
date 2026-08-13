@@ -13,8 +13,7 @@ ipca_m = sgs.get(433, start, end)
 ipca_m = ipca_m[-13:]
 #%% CESTA IPCA
 cesta = [1635, 1636, 1637, 1638, 1639, 1641, 1642, 1643, 1640, 433]
-base = "2026-04-01"
-ipca_cesta = sgs.get(cesta, base, base)
+ipca_cesta = sgs.get(cesta, start, end)
 ipca_cesta = ipca_cesta.rename(columns={"1635": "Alimentação e Bebidas",
                                         "1636": "Habitação",
                                         "1637": "Artigos de Residência",
@@ -26,7 +25,7 @@ ipca_cesta = ipca_cesta.rename(columns={"1635": "Alimentação e Bebidas",
                                         "1640": "Comunicação",
                                         "433": "IPCA"}
                                         )
-ipca_cesta = ipca_cesta.iloc[0].sort_values()
+ipca_cesta = ipca_cesta.iloc[-1].sort_values()
 
 #%% IPCA 12 meses e núcleos 12 meses
 ipca_12m = sgs.get(13522, start, end)
