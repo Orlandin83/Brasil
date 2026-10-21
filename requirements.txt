@@ -1,0 +1,8 @@
+python-bcb
+matplotlib
+pandas
+requests
+numpy
+statsmodels
+ipeadatapy
+sidrapy
